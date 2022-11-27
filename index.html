@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Load Order Sorter</title>
+</head>
+<body>
+    <section id="source-column" class="large-4 columns content-column">
+        <h1>Plugins</h1>
+        <hr>
+        <label for="source-field">Paste one plugin file per line</label>
+        <textarea id="source-field" rows=16></textarea>
+        <input id="load-btn" type="button" value="Load from Local Storage">
+        <input id="update-btn" type="button" value="Update Cards">
+        <hr class="has-margin">
+        <input id="save-btn" type="button" value="Export Load Order">
+    </section>
+
+    <section id="card-column" class="large-4 columns content-column">
+        <h1>Sort Load Order</h1>
+        <hr>
+        <div id="masters" class="cards">
+            <p class="card ui-state-default disabled">Skyrim.esm</p>
+            <p class="card ui-state-default disabled">Update.esm</p>
+            <p class="card ui-state-default disabled">Dawnguard.esm</p>
+            <p class="card ui-state-default disabled">HearthFires.esm</p>
+            <p class="card ui-state-default disabled">Dragonborn.esm</p>
+        </div>
+        <ul id="mods" class="cards droptrue draggable"></ul>
+    </section>
+
+    <section id="out-column" class="large-4 columns content-column">
+        <h1>Load Order Out</h1>
+        <hr>
+        <label for="out-field">Paste into your loadorder.txt</label>
+        <textarea id="out-field" rows=22></textarea>
+    </section>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript">
+    $(window).on('beforeunload', function(event) {
+        return "Reload this window? You will lose your progress!"; // Note this custom message probably won't work on Chromium
+    });
+</script>
+</html>
